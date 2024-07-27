@@ -1,0 +1,5 @@
+FROM liquibase/liquibase:latest
+
+COPY src/main/resources/db/changelog /liquibase/changelog
+COPY liquibase/liquibase.properties /liquibase/liquibase.properties
+COPY target/attractions-service-0.0.1-SNAPSHOT/WEB-INF/lib/postgresql-42.7.3.jar /liquibase/postgresql-42.7.3.jar

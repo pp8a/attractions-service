@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: attractions-service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: tgb098P7
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/attractions-service
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: tgb098P7
+      SPRING_LIQUIBASE_CHANGELOG: classpath:/db/changelog/db.changelog-master.yaml
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres-data:

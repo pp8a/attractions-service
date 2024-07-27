@@ -16,7 +16,7 @@ This is a REST service application for managing data about attractions, built wi
 ### 2. Build the project
 `mvn clean install` 
 ### 3. Configure the database
-Update the src/main/resources/application.yml file with your PostgreSQL database credentials:</br>
+Update the `src/main/resources/application.yml` file with your PostgreSQL database credentials:</br>
 `spring:`</br>
 `  datasource:`</br>
 `    url: jdbc:postgresql://localhost:5432/your_database`</br>
